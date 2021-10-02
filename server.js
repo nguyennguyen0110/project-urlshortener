@@ -77,7 +77,7 @@ app.post('/api/shorturl', (req, res) => {
   });
   /* //***I use these to remove the test url that I used
   URL.deleteMany({url: req.body.url}, (err, docs) => {
-    if (err) return console.loge(err);
+    if (err) return console.log(err);
     console.log('done');
   });
   URL.find({}).exec((err, docs) => {
