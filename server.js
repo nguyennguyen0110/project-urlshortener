@@ -8,7 +8,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
 //Create Schema then create Model
 const urlSchema = new mongoose.Schema({url: String, short_url: Number});
 const URL = mongoose.model('URL', urlSchema);
-//Import body-paser then add middleware
+//Import body-parser then add middleware
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 // Basic Configuration
