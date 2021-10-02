@@ -2,10 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
-//Import mongoose then connect to MongoDB
+//Import mongoose then connect to MongoDB with URI store in secret
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
-//Create Chema then create Model
+//Create Schema then create Model
 const urlSchema = new mongoose.Schema({url: String, short_url: Number});
 const URL = mongoose.model('URL', urlSchema);
 //Import body-paser then add middleware
@@ -75,7 +75,7 @@ app.post('/api/shorturl', (req, res) => {
       });
     }
   });
-  /* //I use these to remove the test url that I used//
+  /* //***I use these to remove the test url that I used
   URL.deleteMany({url: req.body.url}, (err, docs) => {
     if (err) return console.loge(err);
     console.log('done');
